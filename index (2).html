@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuổi Già An Yên | Hành Trình Từ Bục Giảng Mầm Non Đến Làm Chủ AI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        lotus: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            500: '#ec4899',
+                            600: '#db2777',
+                            700: '#be185d',
+                        },
+                        bamboo: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        amberGold: '#FFE61E'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hiệu ứng kính mờ chuẩn KTCS Reels Master Pro */
+        .reels-glass-card {
+            background: rgba(12, 16, 26, 0.88);
+            backdrop-filter: blur(14px);
+            border: 1.5px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+        .hook-title-3d {
+            color: #EB2A2A;
+            text-shadow: 
+                -2px -2px 0 #FFFFFF,  
+                 2px -2px 0 #FFFFFF,
+                -2px  2px 0 #FFFFFF,
+                 2px  2px 0 #FFFFFF,
+                 0px  5px 10px rgba(0,0,0,0.85);
+        }
+        .gradient-hero {
+            background: radial-gradient(circle at top right, rgba(236, 72, 153, 0.12), transparent 45%),
+                        radial-gradient(circle at bottom left, rgba(22, 163, 74, 0.12), transparent 50%),
+                        #fafaf9;
+        }
+        .ao-dai-badge {
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased selection:bg-lotus-500 selection:text-white">
+
+    <!-- Thông báo Toast khi Copy hoặc Thay ảnh -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden transform transition-all duration-300 bg-bamboo-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-bamboo-600">
+        <i class="fa-solid fa-circle-check text-amberGold text-xl"></i>
+        <span id="toast-message" class="font-medium text-sm">Đã sao chép thành công!</span>
+    </div>
+
+    <!-- Thanh điều hướng (Navbar) -->
+    <header class="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-stone-200/80 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-bamboo-600 to-lotus-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition">
+                    <i class="fa-solid fa-seedling text-xl"></i>
+                </div>
+                <div>
+                    <span class="font-serif font-bold text-xl tracking-tight text-stone-900 block leading-none">Tuổi Già An Yên</span>
+                    <span class="text-xs text-lotus-600 font-semibold tracking-wider uppercase mt-1 block">Ươm Mầm Yêu Thương & Công Nghệ AI</span>
+                </div>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-stone-600">
+                <a href="#cau-chuyen" class="hover:text-lotus-600 transition">Câu Chuyện Truyền Cảm Hứng</a>
+                <a href="#thu-vien-anh" class="hover:text-lotus-600 transition">Kỷ Niệm Tam Hồng</a>
+                <a href="#thao-duoc-reels" class="hover:text-bamboo-700 transition">6 Bài Thảo Dược Quý</a>
+                <a href="#he-thong-ai" class="hover:text-bamboo-700 transition">Sức Mạnh AI</a>
+                <a href="#lan-toa" class="hover:text-lotus-600 transition">Kết Nối Facebook</a>
+            </nav>
+
+            <!-- Nút Kết Nối Nhanh -->
+            <div class="flex items-center gap-2.5">
+                <a href="https://www.facebook.com/share/1A1Zg5wgrh/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" 
+                   class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm shadow-sm hover:shadow transition">
+                    <i class="fa-brands fa-facebook text-base"></i>
+                    <span>Facebook Cá Nhân</span>
+                </a>
+                <a href="https://www.facebook.com/share/14k95L3hd3w/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl ao-dai-badge hover:opacity-95 text-white font-semibold text-xs sm:text-sm shadow-sm hover:shadow transition">
+                    <i class="fa-solid fa-heart text-xs"></i>
+                    <span>Kênh Lan Tỏa</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="gradient-hero relative overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-28 border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Cột Nội dung Trái -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-lotus-100 border border-lotus-500/30 text-lotus-700 text-xs font-bold tracking-wide uppercase">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        Hành trình truyền cảm hứng có thật
+                    </div>
+
+                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold text-stone-900 leading-[1.18]">
+                        Từ Tà Áo Dài Hồng <span class="text-lotus-600">Mầm Non Tam Hồng</span> Đến Người Thắp Sáng Kênh <span class="text-bamboo-700 underline decoration-amberGold decoration-4">Tuổi Già An Yên</span> Bằng AI
+                    </h1>
+
+                    <p class="text-stone-600 text-base sm:text-lg leading-relaxed">
+                        Ai cũng nghĩ Trí Tuệ Nhân Tạo (AI), lập trình Python hay lệnh PowerShell là lãnh địa riêng của những kỹ sư công nghệ trẻ tuổi. Nhưng bằng trái tim giàu yêu thương của một cô giáo mầm non, tôi đã biến những dòng mã khô khan thành <strong>những thước phim dưỡng sinh ấm áp</strong>, mang thảo dược vườn quê và sự bình yên đến cho hàng vạn cô bác tuổi xế chiều.
+                    </p>
+
+                    <!-- Trích dẫn nổi bật -->
+                    <blockquote class="p-5 rounded-2xl bg-white/90 border-l-4 border-lotus-600 shadow-sm text-stone-700 italic text-sm sm:text-base">
+                        “Ở Trường Mầm Non Tam Hồng, chúng tôi <strong>khơi nguồn yêu thương và ươm mầm sáng tạo</strong> cho các bé thơ. Còn trên không gian mạng, tôi dùng AI để <strong>gieo hạt giống sức khỏe và sự an yên</strong> báo hiếu ông bà, cha mẹ.”
+                    </blockquote>
+
+                    <!-- Cụm nút CTA -->
+                    <div class="pt-2 flex flex-wrap items-center gap-4">
+                        <a href="#cau-chuyen" class="px-6 py-3.5 rounded-2xl bg-bamboo-800 hover:bg-bamboo-900 text-white font-semibold text-sm sm:text-base shadow-lg shadow-bamboo-900/20 flex items-center gap-2.5 transition transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Đọc trọn vẹn câu chuyện</span>
+                        </a>
+                        <a href="#thao-duoc-reels" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-stone-100 text-stone-800 border border-stone-300 font-semibold text-sm sm:text-base shadow-sm flex items-center gap-2.5 transition">
+                            <i class="fa-solid fa-film text-lotus-600"></i>
+                            <span>Xem 6 Tác Phẩm Thảo Dược AI</span>
+                        </a>
+                    </div>
+
+                    <!-- Chỉ số truyền cảm hứng -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-stone-200/80">
+                        <div>
+                            <div class="font-serif font-bold text-2xl sm:text-3xl text-lotus-600">100%</div>
+                            <div class="text-xs sm:text-sm text-stone-500 font-medium">Tự học làm chủ AI từ con số 0</div>
+                        </div>
+                        <div>
+                            <div class="font-serif font-bold text-2xl sm:text-3xl text-bamboo-700">Ultra-HD</div>
+                            <div class="text-xs sm:text-sm text-stone-500 font-medium">Chuẩn đồ họa 2x Lanczos</div>
+                        </div>
+                        <div>
+                            <div class="font-serif font-bold text-2xl sm:text-3xl text-amber-600">Vô Giá</div>
+                            <div class="text-xs sm:text-sm text-stone-500 font-medium">Tình yêu thương lan tỏa</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột Hình Ảnh Phải (Tương tác gắn ảnh thực tế của Cô) -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md">
+                        <!-- Khung trang trí phía sau -->
+                        <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-lotus-500 via-amber-300 to-bamboo-600 opacity-30 blur-xl"></div>
+                        
+                        <div class="relative bg-white p-3.5 rounded-3xl shadow-2xl border border-stone-100">
+                            <!-- Khung hiển thị ảnh Áo Dài Hồng Trường Mầm Non Tam Hồng -->
+                            <div class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gradient-to-b from-sky-100 via-lotus-50 to-emerald-100 group">
+                                <img id="hero-portrait" 
+                                     src="20-11...jpg" 
+                                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80';" 
+                                     alt="Cô giáo Trường Mầm Non Tam Hồng trong tà áo dài hồng truyền thống" 
+                                     class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105">
+                                
+                                <!-- Huy hiệu trường học như trong bức ảnh thật -->
+                                <div class="absolute top-3 left-3 right-3 flex justify-between items-start pointer-events-none">
+                                    <span class="px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md text-lotus-700 font-extrabold text-xs shadow-md border border-lotus-200">
+                                        🌸 TRƯỜNG MẦM NON TAM HỒNG
+                                    </span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-amberGold text-stone-900 font-bold text-[11px] shadow">
+                                        20-11 Kỷ Niệm
+                                    </span>
+                                </div>
+
+                                <!-- Lớp phủ chân ảnh -->
+                                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent p-5 text-white">
+                                    <p class="text-xs uppercase tracking-widest text-amberGold font-bold mb-1">Nơi khơi nguồn yêu thương & ươm mầm sáng tạo</p>
+                                    <h3 class="font-serif text-xl font-bold">Vẻ Đẹp Tà Áo Dài Hồng & Khát Vọng Đổi Mới</h3>
+                                    <p class="text-xs text-stone-200 mt-1">Bấm nút bên dưới để chọn đúng bức ảnh kỷ niệm trong máy của cô hiển thị trực tiếp lên Blog.</p>
+                                </div>
+                            </div>
+
+                            <!-- Thanh công cụ chọn ảnh trực tiếp từ máy của cô -->
+                            <div class="mt-3 flex items-center justify-between gap-2 bg-stone-50 p-2.5 rounded-2xl border border-stone-200/80">
+                                <div class="flex items-center gap-2 text-xs text-stone-600 font-medium">
+                                    <i class="fa-solid fa-camera-retro text-lotus-600 text-base"></i>
+                                    <span>Hiển thị ảnh thật từ máy:</span>
+                                </div>
+                                <label class="cursor-pointer px-3.5 py-1.5 rounded-xl bg-lotus-600 hover:bg-lotus-700 text-white text-xs font-semibold transition shadow-sm flex items-center gap-1.5">
+                                    <i class="fa-solid fa-upload"></i>
+                                    <span>Chọn ảnh 20-11 của Cô</span>
+                                    <input type="file" accept="image/*" class="hidden" onchange="previewUserImage(event, 'hero-portrait')">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PHẦN 1: CÂU CHUYỆN TRUYỀN CẢM HỨNG HAY NHẤT MỌI THỜI ĐẠI -->
+    <section id="cau-chuyen" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center space-y-3 mb-14">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-bamboo-700 bg-bamboo-100 px-3.5 py-1.5 rounded-full">Hồi Ký Truyền Cảm Hứng</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">
+                    Khi Người Gieo Hạt Mầm Non Bước Vào Thế Giới Trí Tuệ Nhân Tạo
+                </h2>
+                <p class="text-stone-500 text-sm sm:text-base max-w-2xl mx-auto">
+                    Câu chuyện về lòng kiên trì, vượt qua rào cản công nghệ để kiến tạo kênh <strong>Tuổi Già An Yên</strong> — nơi mỗi nhành rau dấp cá, mỗi lá mùi tàu, mỗi lát gừng tươi đều hóa thành lời chúc bình an.
+                </p>
+            </div>
+
+            <!-- Dòng thời gian 4 chương câu chuyện -->
+            <div class="space-y-10 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-lotus-500 before:via-bamboo-600 before:to-amber-500">
+
+                <!-- Chương 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-lotus-600 text-white font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        1
+                    </div>
+                    <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-stone-50 p-6 sm:p-7 rounded-3xl border border-stone-200/90 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center gap-2 text-lotus-600 font-bold text-xs uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-heart"></i> Chương I: Khởi Nguồn Yêu Thương Tại Mầm Non Tam Hồng
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">
+                            Tà Áo Dài Hồng & Những Trăn Trở Sau Giờ Tan Trường
+                        </h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+                            Mỗi sớm mai khoác lên mình tà áo dài hồng thướt tha đứng dưới cổng <strong>Trường Mầm Non Tam Hồng</strong> — <em>“Nơi khơi nguồn yêu thương và ươm mầm sáng tạo”</em>, lòng tôi luôn ngập tràn niềm vui khi nhìn ánh mắt trong veo của các con. Thế nhưng, khi chiều buông, trở về mái nhà thân thương, nhìn cha mẹ, cô bác quanh xóm ngày một thêm tuổi, đôi chân đau mỏi khi trái gió trở trời, giấc ngủ chập chờn vì lạnh tay chân... tôi cứ tự hỏi: <strong>“Mình có thể làm gì để chăm sóc tinh thần và sức khỏe cho người cao tuổi ở khắp mọi nơi?”</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chương 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-bamboo-700 text-white font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        2
+                    </div>
+                    <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-stone-50 p-6 sm:p-7 rounded-3xl border border-stone-200/90 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center gap-2 text-bamboo-700 font-bold text-xs uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-laptop-code"></i> Chương II: Những Đêm Thức Trắng Cùng Câu Lệnh AI
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">
+                            Vượt Qua Nỗi Sợ Công Nghệ Bằng Trái Tim Kiên Định
+                        </h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+                            Bắt đầu học AI khi không phải là dân lập trình, có những buổi tối sau khi soạn giáo án xong, tôi ngồi trước màn hình máy tính làm quen với từng khái niệm hoàn toàn mới: <code>data.json</code>, <code>Super-sampling 2x Lanczos</code>, <code>Python Pillow</code>, <code>Google Flow Prompt</code> và <code>PowerShell FFmpeg</code>. Có lúc gặp giới hạn tạo video, có lúc chữ tiếng Việt dễ lỗi dấu, nhưng tôi không bỏ cuộc. Tôi hiểu rằng: <strong>Công nghệ chỉ thực sự vĩ đại khi nó phục vụ cho lòng nhân ái.</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chương 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-amber-500 text-stone-900 font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        3
+                    </div>
+                    <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-stone-50 p-6 sm:p-7 rounded-3xl border border-stone-200/90 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center gap-2 text-amber-700 font-bold text-xs uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-leaf"></i> Chương III: Sự Ra Đời Của “Tuổi Già An Yên”
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">
+                            Đưa Cây Rau Dấp Cá, Lá Mùi Tàu, Củ Gừng Tươi Lên Thước Phim 4K
+                        </h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+                            Khoảnh khắc những thước phim 9:16 đầu tiên hiện lên với giọt sương long lanh trên <strong>lá rau dấp cá thanh nhiệt</strong>, làn khói ấm tỏa ra từ <strong>tách trà mùi tàu giải cảm</strong>, hay chậu nước <strong>gừng tươi ấm áp ngâm chân</strong> buổi tối... tim tôi vỡ òa hạnh phúc! Từng câu chữ 8 dòng ngắn gọn, dễ đọc cho mắt người già, phân biệt rõ <span class="px-1.5 py-0.5 rounded bg-stone-800 text-amberGold font-semibold text-xs">điều tốt màu vàng</span> và <span class="px-1.5 py-0.5 rounded bg-red-600 text-white font-semibold text-xs">lưu ý màu đỏ</span> đã chạm tới trái tim của biết bao người xem.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chương 4 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-gradient-to-r from-lotus-600 to-bamboo-600 text-white font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        4
+                    </div>
+                    <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-gradient-to-br from-lotus-50 to-bamboo-50 p-6 sm:p-7 rounded-3xl border border-lotus-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center gap-2 text-lotus-700 font-bold text-xs uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-bullhorn"></i> Chương IV: Bước Tiếp Theo — Lan Tỏa Vạn Điều Tử Tế
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">
+                            Không Chỉ Giữ Cho Riêng Mình, Tôi Muốn Truyền Lửa Cho Mọi Người!
+                        </h3>
+                        <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
+                            Hành trình của tôi chứng minh một chân lý: <strong>Không bao giờ là quá muộn để học cái mới, và bất kỳ ai có trái tim ấm áp đều có thể làm chủ AI.</strong> Bước tiếp theo trên các trang Facebook cá nhân và cộng đồng, tôi nguyện sẽ tiếp tục chia sẻ những câu chuyện đời thường giàu nghị lực, những bài thuốc dân gian quý báu quanh vườn, và truyền cảm hứng để các chị em, các thầy cô giáo cùng tự tin bước vào kỷ nguyên số!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PHẦN 2: THƯ VIỆN ẢNH KỶ NIỆM TRƯỜNG MẦM NON TAM HỒNG -->
+    <section id="thu-vien-anh" class="py-16 bg-stone-100/80 border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-lotus-600">Dấu Ấn Đời Thường & Đồng Nghiệp</span>
+                    <h2 class="font-serif text-3xl font-bold text-stone-900 mt-1">
+                        Kỷ Niệm Tại Trường Mầm Non Tam Hồng
+                    </h2>
+                </div>
+                <p class="text-sm text-stone-600 max-w-md">
+                    Nơi những nụ cười rạng rỡ của tập thể cô giáo tạo nên nguồn năng lượng tích cực mỗi ngày để tôi sáng tạo nội dung thiện lành.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+                <!-- Ảnh 1 -->
+                <div class="bg-white p-3.5 rounded-3xl shadow-sm border border-stone-200/80 flex flex-col justify-between">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-stone-100">
+                        <img id="gallery-img-1" 
+                             src="20-11...jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80';" 
+                             alt="Cô giáo trong tà áo dài hồng tại cổng Hello Baby - Trường Mầm Non Tam Hồng" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute bottom-3 inset-x-3 bg-black/70 backdrop-blur-sm text-white p-3 rounded-xl">
+                            <p class="font-bold text-sm">Khơi Nguồn Yêu Thương</p>
+                            <p class="text-xs text-stone-200">Tà áo dài hồng rạng rỡ tại cổng chào Hello Baby - Trường Mầm Non Tam Hồng.</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center justify-between px-1">
+                        <span class="text-xs text-stone-500 font-medium">Ảnh 1: `20-11...jpg`</span>
+                        <label class="cursor-pointer text-xs font-semibold text-lotus-600 hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-folder-open"></i> Đổi ảnh từ máy
+                            <input type="file" accept="image/*" class="hidden" onchange="previewUserImage(event, 'gallery-img-1')">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Ảnh 2 -->
+                <div class="bg-white p-3.5 rounded-3xl shadow-sm border border-stone-200/80 flex flex-col justify-between">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-stone-100">
+                        <img id="gallery-img-2" 
+                             src="120-11,.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=800&q=80';" 
+                             alt="Nụ cười hiền hậu của cô giáo mầm non" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute bottom-3 inset-x-3 bg-black/70 backdrop-blur-sm text-white p-3 rounded-xl">
+                            <p class="font-bold text-sm">Ươm Mầm Sáng Tạo</p>
+                            <p class="text-xs text-stone-200">Tận tâm trên bục giảng, say mê học hỏi công nghệ AI lúc trở về nhà.</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center justify-between px-1">
+                        <span class="text-xs text-stone-500 font-medium">Ảnh 2: `120-11,.jpg`</span>
+                        <label class="cursor-pointer text-xs font-semibold text-lotus-600 hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-folder-open"></i> Đổi ảnh từ máy
+                            <input type="file" accept="image/*" class="hidden" onchange="previewUserImage(event, 'gallery-img-2')">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Ảnh 3 (Ảnh tập thể các cô giáo) -->
+                <div class="bg-white p-3.5 rounded-3xl shadow-sm border border-stone-200/80 flex flex-col justify-between">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-stone-100">
+                        <img id="gallery-img-3" 
+                             src="20-114.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80';" 
+                             alt="Tập thể các cô giáo Trường Mầm Non Tam Hồng duyên dáng bên cổng hoa" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute bottom-3 inset-x-3 bg-black/70 backdrop-blur-sm text-white p-3 rounded-xl">
+                            <p class="font-bold text-sm">Tình Đồng Nghiệp Gắn Kết</p>
+                            <p class="text-xs text-stone-200">Cùng các chị em đồng nghiệp Trường Mầm Non Tam Hồng lan tỏa năng lượng đẹp.</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center justify-between px-1">
+                        <span class="text-xs text-stone-500 font-medium">Ảnh 3: `20-114.jpg`</span>
+                        <label class="cursor-pointer text-xs font-semibold text-lotus-600 hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-folder-open"></i> Đổi ảnh từ máy
+                            <input type="file" accept="image/*" class="hidden" onchange="previewUserImage(event, 'gallery-img-3')">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHẦN 3: BỘ SƯU TẬP 6 TÁC PHẨM REELS THẢO DƯỢC VƯỜN NHÀ (TỪ LỊCH SỬ CHAT) -->
+    <section id="thao-duoc-reels" class="py-20 bg-stone-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="px-3.5 py-1.5 rounded-full bg-bamboo-800 text-amberGold text-xs font-bold uppercase tracking-widest border border-bamboo-600">
+                    Tinh Hoa Từ Lịch Sử Sáng Tạo Cùng AI
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold">
+                    6 Bài Thảo Dược Vườn Nhà Trên Kênh “Tuổi Già An Yên”
+                </h2>
+                <p class="text-stone-300 text-sm sm:text-base">
+                    Được biên soạn theo chuẩn khóa chặt <strong>KTCS Reels Master Pro</strong>: Tiêu đề Hook 3D vần điệu, 8 dòng vàng - đỏ rõ ràng dễ đọc cho người lớn tuổi, kèm câu chốt ấm lòng và nút Copy nhanh để đăng bài Facebook!
+                </p>
+
+                <!-- Bộ lọc thảo dược -->
+                <div class="pt-4 flex flex-wrap justify-center gap-2.5">
+                    <button onclick="filterCards('all')" id="btn-all" class="filter-btn active px-5 py-2 rounded-xl bg-amberGold text-stone-900 font-bold text-xs sm:text-sm transition">
+                        Tất cả (6 Bài)
+                    </button>
+                    <button onclick="filterCards('dapca')" id="btn-dapca" class="filter-btn px-5 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-xs sm:text-sm transition">
+                        🌿 Rau Dấp Cá (2 Bài)
+                    </button>
+                    <button onclick="filterCards('muitau')" id="btn-muitau" class="filter-btn px-5 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-xs sm:text-sm transition">
+                        🌱 Rau Mùi Tàu (2 Bài)
+                    </button>
+                    <button onclick="filterCards('gungtuoi')" id="btn-gungtuoi" class="filter-btn px-5 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-xs sm:text-sm transition">
+                        🫚 Củ Gừng Tươi (2 Bài)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid hiển thị 6 thẻ kính mờ chuẩn 9:16 -->
+            <div id="reels-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Đổ dữ liệu bằng JavaScript từ lịch sử chat -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PHẦN 4: HỆ THỐNG KTCS REELS MASTER PRO MÀ CÔ ĐÃ LÀM CHỦ -->
+    <section id="he-thong-ai" class="py-16 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-stone-900 via-bamboo-900 to-stone-900 rounded-3xl p-8 sm:p-12 text-white shadow-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-amberGold">Bí Quyết Đằng Sau Những Video Triệu Tim</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold">
+                            Quy Trình 4 Bước Tự Động Hóa AI Mà Tôi Đã Chinh Phục
+                        </h3>
+                        <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+                            Để vừa hoàn thành tốt công việc chăm sóc các bé tại trường mầm non, vừa đều đặn ra video mỗi ngày cho kênh <strong>Tuổi Già An Yên</strong>, tôi đã ứng dụng quy trình tự động hóa khép kín:
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 rounded-2xl bg-white/10 border border-white/15">
+                                <div class="text-amberGold font-bold text-sm mb-1">1. Biên soạn JSON Đa Kênh</div>
+                                <p class="text-xs text-stone-300">Cấu trúc 8 dòng súc tích, gắn thẻ màu tự động cho điều nên làm và điều kiêng kỵ.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white/10 border border-white/15">
+                                <div class="text-amberGold font-bold text-sm mb-1">2. Đồ họa Ultra-HD 2x Lanczos</div>
+                                <p class="text-xs text-stone-300">Vẽ bằng Python ở độ phân giải 2160x3840 rồi nén đa tầng sắc nét, không lỗi font tiếng Việt.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white/10 border border-white/15">
+                                <div class="text-amberGold font-bold text-sm mb-1">3. Tạo Video AI Chuyển Động</div>
+                                <p class="text-xs text-stone-300">Tạo cảnh quay 9:16 vườn quê thanh bình, giọt sương mai và tách trà thảo mộc bốc khói.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white/10 border border-white/15">
+                                <div class="text-amberGold font-bold text-sm mb-1">4. Ghép Video 1-Click PowerShell</div>
+                                <p class="text-xs text-stone-300">Chỉ 1 dòng lệnh tự động lồng ghép toàn bộ ảnh chữ vào video nền trong 5 giây.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Khung Copy Lệnh PowerShell 1-Click -->
+                    <div class="lg:col-span-5 bg-black/60 p-6 rounded-2xl border border-white/15 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-terminal"></i> Lệnh PowerShell 1-Click Ghép Video
+                            </span>
+                            <button onclick="copyPowerShellCommand()" class="px-3 py-1.5 rounded-lg bg-amberGold hover:bg-yellow-300 text-stone-900 font-bold text-xs transition flex items-center gap-1">
+                                <i class="fa-regular fa-copy"></i> Copy Lệnh
+                            </button>
+                        </div>
+                        <pre id="ps-code" class="text-[11px] text-stone-300 bg-stone-950 p-3.5 rounded-xl overflow-x-auto leading-relaxed font-mono">New-Item -ItemType Directory -Force -Path "Final_Reels" | Out-Null; Get-ChildItem -Filter "*.mp4" | ForEach-Object { $base = $_.BaseName; $png = "$base.png"; $out = "Final_Reels\$base`_final.mp4"; if (Test-Path $png) { ffmpeg -y -i $_.FullName -i $png -filter_complex "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[bg];[bg][1:v]overlay=0:0:format=auto,format=yuv420p[v]" -map "[v]" -map "0:a?" -c:v libx264 -preset fast -crf 18 -c:a aac -b:a 192k -shortest $out } }</pre>
+                        <p class="text-[11px] text-stone-400 italic">
+                            * Lưu giữ ngay trên Blog cá nhân để bất cứ lúc nào cô cần ghép video trên máy tính chỉ việc bấm Copy 1-Click.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHẦN 5: BƯỚC TIẾP THEO - LAN TỎA CÂU CHUYỆN TRUYỀN CẢM HỨNG & KẾT NỐI FACEBOOK -->
+    <section id="lan-toa" class="py-20 gradient-hero">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                <span class="px-3.5 py-1.5 rounded-full bg-lotus-100 text-lotus-700 font-bold text-xs uppercase tracking-widest">
+                    Sứ Mệnh Tiếp Theo Của Tôi
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">
+                    Lan Tỏa Những Câu Chuyện Truyền Cảm Hứng Trên Facebook
+                </h2>
+                <p class="text-stone-600 text-sm sm:text-base">
+                    Hãy cùng kết nối với tôi qua 2 địa chỉ Facebook chính thức dưới đây để mỗi ngày đều đón nhận năng lượng tích cực, những bài học dưỡng sinh quý giá và những câu chuyện chạm đến trái tim.
+                </p>
+            </div>
+
+            <!-- 2 Thẻ Kết Nối Facebook Chính Thức của Cô -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+                
+                <!-- Trang Facebook 1 -->
+                <div class="bg-white p-7 rounded-3xl shadow-xl border-2 border-lotus-100 hover:border-lotus-500 transition flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-lotus-50 group-hover:scale-125 transition"></div>
+                    <div class="relative space-y-4">
+                        <div class="w-14 h-14 rounded-2xl ao-dai-badge text-white flex items-center justify-center text-2xl shadow-md">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-lotus-600">Ngôi Nhà Kết Nối Số 1</span>
+                            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-1">
+                                Trang Facebook Cá Nhân & Nhật Ký Đời Thường
+                            </h3>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Nơi lưu giữ những khoảnh khắc yêu thương tại <strong>Trường Mầm Non Tam Hồng</strong>, hành trình tự học AI mỗi ngày và những sẻ chia chân thành nhất về cuộc sống, gia đình và nghề giáo.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3 relative">
+                        <a href="https://www.facebook.com/share/1A1Zg5wgrh/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" 
+                           class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl ao-dai-badge hover:opacity-95 text-white font-bold text-sm shadow-md transition">
+                            <i class="fa-solid fa-up-right-from-square"></i>
+                            <span>Truy Cập Facebook (Link 1)</span>
+                        </a>
+                        <button onclick="copyTextToClipboard('https://www.facebook.com/share/1A1Zg5wgrh/?mibextid=wwXIfr', 'Đã sao chép Link Facebook 1!')" 
+                                class="px-4 py-3.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold text-xs transition">
+                            <i class="fa-regular fa-copy"></i> Copy Link
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trang Facebook 2 -->
+                <div class="bg-white p-7 rounded-3xl shadow-xl border-2 border-bamboo-100 hover:border-bamboo-600 transition flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-bamboo-50 group-hover:scale-125 transition"></div>
+                    <div class="relative space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-bamboo-600 to-bamboo-800 text-white flex items-center justify-center text-2xl shadow-md">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-bamboo-700">Ngôi Nhà Kết Nối Số 2</span>
+                            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-1">
+                                Không Gian Lan Tỏa & Tuổi Già An Yên
+                            </h3>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Nơi đăng tải trọn bộ các thước phim Reels thảo dược vườn nhà, bí quyết sống khỏe tuổi xế chiều và những câu chuyện nhân văn gieo mầm thiện lành cho cộng đồng.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3 relative">
+                        <a href="https://www.facebook.com/share/14k95L3hd3w/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" 
+                           class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-bamboo-700 hover:bg-bamboo-800 text-white font-bold text-sm shadow-md transition">
+                            <i class="fa-solid fa-up-right-from-square"></i>
+                            <span>Truy Cập Facebook (Link 2)</span>
+                        </a>
+                        <button onclick="copyTextToClipboard('https://www.facebook.com/share/14k95L3hd3w/?mibextid=wwXIfr', 'Đã sao chép Link Facebook 2!')" 
+                                class="px-4 py-3.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold text-xs transition">
+                            <i class="fa-regular fa-copy"></i> Copy Link
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- KHO BÀI ĐĂNG FACEBOOK TRUYỀN CẢM HỨNG DÀNH SẴN CHO CÔ (1-CLICK COPY ĐỂ ĐĂNG NGAY) -->
+            <div class="bg-white rounded-3xl p-7 sm:p-10 shadow-lg border border-stone-200/90 max-w-5xl mx-auto">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-200">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-lotus-600">Quà Tặng Đặc Biệt Tích Hợp Trong Blog</span>
+                        <h3 class="font-serif text-2xl font-bold text-stone-900 mt-1">
+                            3 Bài Viết Truyền Cảm Hứng Soạn Sẵn Để Cô Đăng Lên Facebook
+                        </h3>
+                    </div>
+                    <span class="text-xs text-stone-500 bg-stone-100 px-3 py-1.5 rounded-xl font-medium">
+                        Bấm “Copy Bài Viết” rồi dán thẳng lên Facebook
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                    <!-- Mẫu bài đăng 1 -->
+                    <div class="bg-stone-50 p-5 rounded-2xl border border-stone-200 flex flex-col justify-between">
+                        <div>
+                            <span class="px-2.5 py-1 rounded-md bg-lotus-100 text-lotus-700 font-bold text-[11px]">Bài Đăng 1: Tâm Sự Nghề Giáo & AI</span>
+                            <h4 class="font-bold text-stone-900 mt-2 text-base">Từ Bục Giảng Mầm Non Đến Giấc Mơ AI</h4>
+                            <p id="fb-post-1" class="text-xs text-stone-600 mt-2 leading-relaxed whitespace-pre-line">🌸 Nhiều người hỏi mình: "Làm cô giáo mầm non bận rộn cả ngày bên các con ở Trường Mầm Non Tam Hồng rồi, sao còn thức khuya học AI và làm video dưỡng sinh làm gì cho vất vả?"
+
+Mình chỉ mỉm cười. Ở trường, mình ươm mầm yêu thương cho các bé thơ. Còn khi về nhà, nhìn cha mẹ và các cô bác lớn tuổi quanh mình, mình muốn dùng công nghệ AI để biến những cây rau dấp cá, lá mùi tàu, củ gừng tươi góc vườn thành những thước phim thật dễ hiểu, dễ nhớ.
+
+Không bao giờ là quá muộn để học một điều mới khi trong tim mình có tình yêu thương! Chúc cả nhà một ngày an yên và tràn đầy năng lượng nhé! ❤️🌿
+#TuoiGiaAnYen #MamNonTamHong #HanhTrinhHocAI #TruyenCamHung</p>
+                        </div>
+                        <button onclick="copyElementText('fb-post-1', 'Đã copy Bài đăng số 1! Cô có thể dán lên Facebook ngay.')" class="mt-4 w-full py-2.5 rounded-xl bg-lotus-600 hover:bg-lotus-700 text-white font-semibold text-xs transition flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-copy"></i> Copy Bài Viết Số 1
+                        </button>
+                    </div>
+
+                    <!-- Mẫu bài đăng 2 -->
+                    <div class="bg-stone-50 p-5 rounded-2xl border border-stone-200 flex flex-col justify-between">
+                        <div>
+                            <span class="px-2.5 py-1 rounded-md bg-bamboo-100 text-bamboo-800 font-bold text-[11px]">Bài Đăng 2: Quà Tặng Sức Khỏe</span>
+                            <h4 class="font-bold text-stone-900 mt-2 text-base">3 Cây Thuốc Quý Ngay Góc Vườn Quê</h4>
+                            <p id="fb-post-2" class="text-xs text-stone-600 mt-2 leading-relaxed whitespace-pre-line">🌿 Đôi khi những thảo dược quý giá nhất lại chẳng ở đâu xa, mà nằm ngay góc vườn quê thân thuộc của mỗi gia đình:
+
+1️⃣ Cây rau dấp cá: Thanh nhiệt, mát gan, bền vững thành mạch.
+2️⃣ Lá rau mùi tàu: Ấm bụng, tiêu thực, giải cảm nhẹ nhàng khi trở gió.
+3️⃣ Củ gừng tươi: Đập dập pha nước muối ấm ngâm chân mỗi tối giúp êm xương khớp, ngủ sâu giấc tới sáng.
+
+Mình vừa hoàn thành trọn bộ 6 video trên kênh Tuổi Già An Yên. Mong rằng mỗi thước phim nhỏ sẽ mang lại thật nhiều sức khỏe cho ông bà, cha mẹ! 🍵✨
+#TuoiGiaAnYen #ThaoDuocVuonNha #SongKhoeMoiNgay #LanToaYeuThuong</p>
+                        </div>
+                        <button onclick="copyElementText('fb-post-2', 'Đã copy Bài đăng số 2! Cô có thể dán lên Facebook ngay.')" class="mt-4 w-full py-2.5 rounded-xl bg-bamboo-700 hover:bg-bamboo-800 text-white font-semibold text-xs transition flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-copy"></i> Copy Bài Viết Số 2
+                        </button>
+                    </div>
+
+                    <!-- Mẫu bài đăng 3 -->
+                    <div class="bg-stone-50 p-5 rounded-2xl border border-stone-200 flex flex-col justify-between">
+                        <div>
+                            <span class="px-2.5 py-1 rounded-md bg-amber-100 text-amber-800 font-bold text-[11px]">Bài Đăng 3: Truyền Lửa Phụ Nữ Thời Đại Số</span>
+                            <h4 class="font-bold text-stone-900 mt-2 text-base">Phụ Nữ Hiện Đại: Dịu Dàng Trong Tà Áo Dài, Bản Lĩnh Cùng Công Nghệ</h4>
+                            <p id="fb-post-3" class="text-xs text-stone-600 mt-2 leading-relaxed whitespace-pre-line">✨ Khoác lên mình tà áo dài hồng truyền thống bên những đồng nghiệp thân thương tại Trường Mầm Non Tam Hồng, mình luôn tự hào về sự dịu dàng, kiên nhẫn của người phụ nữ Việt Nam.
+
+Và chính sự kiên nhẫn ấy đã giúp mình chinh phục từng câu lệnh AI, từng dòng code tự động hóa để xây dựng nên kênh nội dung nhân văn. Chị em chúng mình ơi, đừng ngại học hỏi điều mới mỗi ngày nhé. Khi chúng ta dám bước đi, cả một bầu trời sáng tạo sẽ mở ra! 🌸💪
+#PhuNuHienDai #TruongMamNonTamHong #TuoiGiaAnYen #DamUocMo</p>
+                        </div>
+                        <button onclick="copyElementText('fb-post-3', 'Đã copy Bài đăng số 3! Cô có thể dán lên Facebook ngay.')" class="mt-4 w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-semibold text-xs transition flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-copy"></i> Copy Bài Viết Số 3
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-bamboo-600 to-lotus-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <div>
+                    <span class="text-white font-serif font-bold text-base block">Tuổi Già An Yên & Hành Trình AI</span>
+                    <span class="text-xs text-stone-500">Khơi nguồn yêu thương từ Trường Mầm Non Tam Hồng đến không gian số</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 text-xs">
+                <a href="https://www.facebook.com/share/1A1Zg5wgrh/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
+                    <i class="fa-brands fa-facebook text-blue-500 mr-1"></i> Facebook Cá Nhân 1
+                </a>
+                <span>•</span>
+                <a href="https://www.facebook.com/share/14k95L3hd3w/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
+                    <i class="fa-brands fa-facebook text-lotus-500 mr-1"></i> Facebook Kết Nối 2
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT XỬ LÝ DỮ LIỆU & TƯƠNG TÁC -->
+    <script>
+        // Dữ liệu 6 bài thảo dược từ lịch sử chat KTCS Reels Master Pro
+        const reelsData = [
+            {
+                id: "01_dap_ca_thanh_nhiet",
+                category: "dapca",
+                badge: "Rau Dấp Cá • Bài 01",
+                title: ["RAU DẤP CÁ VƯỜN NHÀ", "THANH NHIỆT MÁT GAN TA"],
+                lines: [
+                    "1. Vị chua cay ⟨thanh mát cơ thể⟩",
+                    "2. Giúp người già ⟨hạ nhiệt giải độc⟩",
+                    "3. Làm mát gan ⟨tiêu trừ mụn nhọt⟩",
+                    "4. Nhuận tràng tốt «đẩy lùi táo bón»",
+                    "5. Hỗ trợ giảm «nỗi lo bệnh trĩ»",
+                    "6. Lợi tiểu tiện «hết chứng tiểu buốt»",
+                    "7. Rửa nước muối ⟨ngâm kỹ thật sạch⟩",
+                    "8. Ăn vừa đủ «tránh dùng quá lạnh»"
+                ],
+                outro: "Thảo dược quý ngay góc vườn quê",
+                sig: "Tuổi Già An Yên",
+                prompt: "01_dap_ca_thanh_nhiet.mp4 - Vertical 9:16 cinematic slow motion, fresh green fish mint leaves (Houttuynia cordata) with sparkling water droplets in morning sunlight, rustic wooden table in a peaceful Vietnamese countryside garden, warm nostalgic lighting, 4k resolution, photorealistic."
+            },
+            {
+                id: "02_dap_ca_ben_mach",
+                category: "dapca",
+                badge: "Rau Dấp Cá • Bài 02",
+                title: ["DẤP CÁ QUÝ NHƯ VÀNG", "BỀN THÀNH MẠCH AN KHANG"],
+                lines: [
+                    "1. Giàu hoạt chất ⟨bền vững thành mạch⟩",
+                    "2. Giúp tuần hoàn ⟨máu huyết lưu thông⟩",
+                    "3. Kháng viêm tự nhiên ⟨tăng sức đề kháng⟩",
+                    "4. Giảm ho đờm «khi trời trở gió»",
+                    "5. Hạ sốt nhẹ ⟨an toàn tại nhà⟩",
+                    "6. Ép lấy nước ⟨uống vào buổi sáng⟩",
+                    "7. Không uống lúc «bụng đang đói cồn»",
+                    "8. Giữ cơ thể ⟨luôn khỏe mỗi ngày⟩"
+                ],
+                outro: "Sống thuận tự nhiên thân tâm khỏe",
+                sig: "Tuổi Già An Yên",
+                prompt: "02_dap_ca_ben_mach.mp4 - Vertical 9:16 close up shot, pouring fresh green herbal juice from a glass pitcher into a small glass cup, surrounded by fresh fish mint leaves, soft bokeh background of a tranquil garden, calm and healing atmosphere, 4k, ultra HD."
+            },
+            {
+                id: "03_mui_tau_khoe_bung",
+                category: "muitau",
+                badge: "Rau Mùi Tàu • Bài 03",
+                title: ["LÁ MÙI TÀU THƠM NGON", "BỤNG DẠ KHỎE TIÊU HÓA"],
+                lines: [
+                    "1. Mùi thơm nồng ⟨kích thích tiêu hóa⟩",
+                    "2. Giúp người già ⟨ăn ngon miệng hơn⟩",
+                    "3. Đẩy lùi nhanh «chứng đầy hơi chướng»",
+                    "4. Làm ấm bụng «hết cảnh khó tiêu»",
+                    "5. Khử mùi hôi ⟨hơi thở thơm tho⟩",
+                    "6. Sắc nước uống ⟨lợi tiểu mát thận⟩",
+                    "7. Người đau dạ dày «không ăn quá nhiều»",
+                    "8. Vài lá nhỏ ⟨bữa cơm thêm ngon⟩"
+                ],
+                outro: "Bữa cơm quê ấm tình năm tháng",
+                sig: "Tuổi Già An Yên",
+                prompt: "03_mui_tau_khoe_bung.mp4 - Vertical 9:16 cinematic shot, fresh culantro leaves (Eryngium foetidum) with serrated green edges in a woven bamboo basket, gentle morning mist, warm sunlight rays filtering through trees, peaceful rural kitchen vibe, 4k resolution."
+            },
+            {
+                id: "04_mui_tau_giai_cam",
+                category: "muitau",
+                badge: "Rau Mùi Tàu • Bài 04",
+                title: ["MÙI TÀU QUÝ QUANH SÂN", "GIẢI CẢM LẠNH AN THẦN"],
+                lines: [
+                    "1. Tính ấm nhẹ ⟨xua tan khí lạnh⟩",
+                    "2. Giải cảm mạo «nhức đầu sổ mũi»",
+                    "3. Làm dịu êm «cơn ho đờm đặc»",
+                    "4. Hỗ trợ kiểm soát ⟨đường huyết ổn định⟩",
+                    "5. Giảm đau nhức «xương khớp tuổi già»",
+                    "6. Nấu cháo nóng ⟨toát mồ hôi nhẹ⟩",
+                    "7. Người cơ địa nhiệt «hạn chế dùng nhiều»",
+                    "8. Giữ gìn sức khỏe ⟨an vui tuổi chiều⟩"
+                ],
+                outro: "Chăm sóc thân khỏe lòng thêm yên",
+                sig: "Tuổi Già An Yên",
+                prompt: "04_mui_tau_giai_cam.mp4 - Vertical 9:16 aesthetic slow motion, warm herbal tea steaming in a traditional ceramic cup next to fresh green culantro leaves on a wooden tray, cozy and peaceful atmosphere, soft natural lighting, 4k ultra HD."
+            },
+            {
+                id: "05_gung_tuoi_am_nguoi",
+                category: "gungtuoi",
+                badge: "Củ Gừng Tươi • Bài 05",
+                title: ["CỦ GỪNG TƯƠI ẤM ÁP", "KHÍ HUYẾT THÔNG AN LÀNH"],
+                lines: [
+                    "1. Vị cay ấm ⟨làm ấm lục phủ⟩",
+                    "2. Xua tan ngay «chứng lạnh tay chân»",
+                    "3. Giúp khí huyết ⟨lưu thông suốt ngày⟩",
+                    "4. Cầm buồn nôn «chóng mặt say xe»",
+                    "5. Ly trà gừng ⟨ấm lòng buổi sáng⟩",
+                    "6. Thêm mật ong ⟨dịu cổ bổ phổi⟩",
+                    "7. Buổi tối muộn «tuyệt đối kiêng dùng»",
+                    "8. Giữ nguyên vỏ ⟨rửa sạch khi đun⟩"
+                ],
+                outro: "Một lát gừng ấm cả mùa đông",
+                sig: "Tuổi Già An Yên",
+                prompt: "05_gung_tuoi_am_nguoi.mp4 - Vertical 9:16 close up cinematic shot, sliced fresh ginger root on a wooden cutting board with a steaming cup of honey ginger tea, warm golden hour lighting, cozy traditional Vietnamese home setting, 4k resolution."
+            },
+            {
+                id: "06_gung_tuoi_giam_dau",
+                category: "gungtuoi",
+                badge: "Củ Gừng Tươi • Bài 06",
+                title: ["DÙNG GỪNG TƯƠI ĐÚNG CÁCH", "ÊM XƯƠNG KHỚP NGỦ NGON"],
+                lines: [
+                    "1. Giàu tinh dầu ⟨kháng viêm giảm đau⟩",
+                    "2. Xoa dịu nhanh «đau mỏi khớp gối»",
+                    "3. Đập dập gừng ⟨pha nước muối ấm⟩",
+                    "4. Ngâm bàn chân ⟨trước giờ đi ngủ⟩",
+                    "5. Giúp giấc nồng ⟨sâu giấc đến sáng⟩",
+                    "6. Phòng cảm lạnh «lúc giao mùa về»",
+                    "7. Gừng mọc mầm «dập thối vứt ngay»",
+                    "8. Người huyết áp cao «lưu ý liều dùng»"
+                ],
+                outro: "Đôi chân ấm giấc ngủ thêm sâu",
+                sig: "Tuổi Già An Yên",
+                prompt: "06_gung_tuoi_giam_dau.mp4 - Vertical 9:16 slow motion, warm herbal foot bath in a wooden basin with fresh ginger slices and warm steam rising, peaceful spa-like countryside ambiance, soft warm lighting, 4k ultra HD."
+            }
+        ];
+
+        // Chuyển đổi marker ⟨vàng⟩ và «đỏ» sang HTML hiển thị chuẩn
+        function formatLineWithMarkers(line) {
+            return line
+                .replace(/⟨(.*?)⟩/g, '<span class="text-amberGold font-bold">$1</span>')
+                .replace(/«(.*?)»/g, '<span class="text-red-400 font-bold underline decoration-white/60">$1</span>');
+        }
+
+        // Render danh sách thẻ Reels
+        function renderReelsCards(filter = 'all') {
+            const grid = document.getElementById('reels-grid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' ? reelsData : reelsData.filter(item => item.category === filter);
+
+            filtered.forEach((item, index) => {
+                const linesHtml = item.lines.map(l => `<li class="text-sm sm:text-[15px] text-white/95 font-medium tracking-wide">${formatLineWithMarkers(l)}</li>`).join('');
+                
+                // Nội dung bài đăng thuần văn bản để copy đăng Facebook
+                const plainPost = `${item.title[0]} - ${item.title[1]}\n\n` +
+                    item.lines.map(l => l.replace(/[⟨⟩«»]/g, '')).join('\n') +
+                    `\n\n👉 ${item.outro}\n— ${item.sig} —`;
+
+                const card = document.createElement('div');
+                card.className = "reels-glass-card rounded-[32px] p-6 flex flex-col justify-between relative overflow-hidden group transition duration-300 hover:-translate-y-1";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-stone-400 mb-3">
+                            <span class="px-2.5 py-1 rounded-full bg-white/10 text-amberGold font-semibold">${item.badge}</span>
+                            <span class="font-mono text-[11px]">${item.id}</span>
+                        </div>
+
+                        <!-- Tiêu đề Hook 3D -->
+                        <div class="text-center py-3 mb-4 rounded-2xl bg-gradient-to-b from-white/10 to-transparent border border-white/10">
+                            <div class="hook-title-3d font-extrabold text-lg sm:text-xl tracking-wide leading-snug uppercase">
+                                ${item.title[0]}<br>${item.title[1]}
+                            </div>
+                        </div>
+
+                        <!-- 8 Dòng Thân Bài -->
+                        <ul class="space-y-2.5 px-1">
+                            ${linesHtml}
+                        </ul>
+                    </div>
+
+                    <!-- Chân Thẻ Kính: Outro & Signature -->
+                    <div class="mt-6 pt-4 border-t border-amberGold/30 text-center space-y-1">
+                        <p class="text-white font-bold text-sm">${item.outro}</p>
+                        <p class="text-amberGold font-extrabold text-xs tracking-wider uppercase">— ${item.sig} —</p>
+
+                        <!-- Nút Copy Bài & Copy Prompt -->
+                        <div class="pt-4 grid grid-cols-2 gap-2">
+                            <button onclick="copyTextToClipboard(\`${plainPost}\`, 'Đã copy nội dung bài ${item.id} để đăng Facebook!')" 
+                                    class="py-2 px-3 rounded-xl bg-bamboo-700 hover:bg-bamboo-600 text-white font-semibold text-xs transition flex items-center justify-center gap-1.5">
+                                <i class="fa-regular fa-copy"></i> Copy Bài Đăng
+                            </button>
+                            <button onclick="copyTextToClipboard(\`${item.prompt}\`, 'Đã copy Prompt Video ${item.id}!')" 
+                                    class="py-2 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-amberGold font-semibold text-xs transition flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-film"></i> Copy Prompt
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Bộ lọc danh mục thảo dược
+        function filterCards(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-5 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-xs sm:text-sm transition";
+            });
+            const activeBtn = document.getElementById('btn-' + category);
+            if (activeBtn) {
+                activeBtn.className = "filter-btn active px-5 py-2 rounded-xl bg-amberGold text-stone-900 font-bold text-xs sm:text-sm transition";
+            }
+            renderReelsCards(category);
+        }
+
+        // Cho phép cô chọn trực tiếp file ảnh từ máy tính để hiển thị tức thì trên trang
+        function previewUserImage(event, targetImgId) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imgElement = document.getElementById(targetImgId);
+                if (imgElement) {
+                    imgElement.src = e.target.result;
+                    showToast("Đã cập nhật bức ảnh kỷ niệm của Cô lên trang!");
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Hàm sao chép văn bản an toàn trong mọi trình duyệt
+        function copyTextToClipboard(text, message) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast(message || "Đã sao chép vào bộ nhớ tạm!");
+            } catch (err) {
+                console.error('Không thể copy', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function copyElementText(elementId, message) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                copyTextToClipboard(el.innerText, message);
+            }
+        }
+
+        function copyPowerShellCommand() {
+            const code = document.getElementById('ps-code').innerText;
+            copyTextToClipboard(code, "Đã copy câu lệnh PowerShell 1-Click ghép video!");
+        }
+
+        // Hiển thị thông báo Toast góc phải
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msgSpan = document.getElementById('toast-message');
+            msgSpan.textContent = message;
+            toast.classList.remove('hidden');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3200);
+        }
+
+        // Khởi chạy ban đầu
+        window.onload = function() {
+            renderReelsCards('all');
+        };
+    </script>
+</body>
+</html>
